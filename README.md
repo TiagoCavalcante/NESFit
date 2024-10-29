@@ -32,3 +32,4 @@ git pull --rebase
 ## Organization of the folders
 
 - `notebooks`: Data analysis Jupyter notebooks
+- `data`
