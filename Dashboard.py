@@ -1,4 +1,5 @@
 #Importando as bibliotecas nescessárias
+from Functions import Funcoes_Distribuicao
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sea
@@ -6,50 +7,6 @@ import numpy as np
 import streamlit as st 
 
 df = pd.read_csv('C:\\Prog\\Py\\ProjetosPessoais\\Pratica_e_pesquisa\\NESFIT\\data\\fitness_gym.csv')
-
-def Distribuicao_Atividades(df):#Grafico de distribuição das ativades 
-
-    plt.figure(figsize=(10,5), facecolor = '#0A0D0F')
-    plt.grid(True,color = '#0A2538', linestyle = "--", alpha = 0.7)
-    plt.title('Distribution of Activities in the Gym', fontsize=16, color='#E64B2D')
-    plt.xlabel('Activity', fontsize=14, color='#E64B2D')
-    plt.ylabel('Frequency', fontsize=14, color='#E64B2D')
-    plt.xticks(color ='#E2CC9C',fontsize=10)
-    plt.yticks(color ='#E2CC9C',fontsize=10)
-    plt.hist(df['activity'],color='#0A2538',bins=15)
-    plt.gca().set_facecolor('#E2CC9C')
-    return plt
-def Distribuicao_Idades(df):
-#Pegando as idades
-    ages = df['age']
-
-
-    #definindo a figure
-    plt.figure(figsize=(10,5), facecolor='#0A0D0F')
-
-    #Criando um histograma com as idades
-    plt.hist(ages,bins=20,color='#E64B2D')
-
-    #Adicionando e estilizando a grade
-    plt.grid(True,color='#0A2538',alpha = 0.7, linestyle='--')
-
-    #Titulos, labels e ticks
-    plt.title('Distribuition of ages in the GYM', color='#E2CC9C',fontsize=16)
-    plt.xlabel('Age',color='#E2CC9C',fontsize=14)
-    plt.ylabel('Count',color='#E2CC9C',fontsize=14)
-    plt.xticks(color ='#E2CC9C',fontsize=10)
-    plt.yticks(color ='#E2CC9C',fontsize=10)
-
-    #background color
-    plt.gca().set_facecolor('#E2CC9C')
-
-    #Criando um gráfico em linha
-    age_counts, bin_edges = np.histogram(ages, bins=20)
-    bin_centers = 0.5 * (bin_edges[:-1] + bin_edges[1:])
-    plt.plot(bin_centers, age_counts, color='#0A2538', marker='o', linestyle='-', linewidth=2, label='Linha')
-    return plt
-
-
 
 # Seletor de gráficos no painel lateral
 from PIL import Image, ImageDraw
@@ -81,18 +38,52 @@ def make_circle_image(image_path, size=(100, 100)):
 
 st.sidebar.image(make_circle_image('src\\imgs\\nesfitv2.jpg.webp'))
 
-chart_type = st.sidebar.selectbox("Navegação", ["Tela de Início", "Informações do Projeto", "Análises de Distribuição"])
+chart_type = st.sidebar.selectbox("Navegação", ["Tela de Início","Mercado", "Análises de Distribuição", "Informações do Grupo"])
 
 # Lógica para exibir os gráficos com base no seletor
 
 if chart_type == "Tela de Início":
     st.markdown("<h1 style='text-align: center;'>G2 NESFIT</h1>", unsafe_allow_html=True)
     st.image('src\\imgs\\Tela Inicial.png')
-    
 
-elif chart_type == "Informações do Projeto":
+elif chart_type == "Mercado":
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image('src\\imgs\\gym_mercado.png')
+    with col2:
+        st.markdown("<h1 style='text-align: center;'>Contexto de mercado</h1>", unsafe_allow_html=True)
+        st.markdown("""
+                    ***********************
+#### -O mercado fitness é uma área ampla que contempla negócios voltados à saúde e bem-estar de modo geral.
+                    
+#### -Durante as últimas décadas, a necessidade de exercícios físicos é cada vez maior, a crescente preocupação com a saúde fez com que mais pessoas procurassem academias e espaços fitness.
+
+
+
+                    """) 
+
+    st.markdown("""************************""")     
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("<h1 style='text-align: center;'>Estatísticas do mercado</h1>", unsafe_allow_html=True)
+        st.markdown("""
+
+*******************
+#### -O mercado fitness no Brasil fatura R$ 12 bilhões ao ano, de acordo com o Panorama Setorial de 2023   
+
+#### -O valor transacionado com academias e produtos fitness cresceu cerca de 35% em 2023 comparado ao ano anterior, segundo estudo do Itaú Unibanco
+
+""")
+        
+         
+    with col2: 
+        st.image('src\\imgs\\gym_mercado2.png')
+
+elif chart_type == "Informações do Grupo":
     st.markdown("<h1 style='text-align: center;'>Informações do projeto</h1>", unsafe_allow_html=True)
+    st.markdown("********************")
     st.write('## Integrantes do Grupo NESFIT')
+    
     col1, col2,col3 = st.columns(3)
     with col1:
         st.image(make_circle_image('src\\imgs\\Clarisse.jpg'))
@@ -107,10 +98,31 @@ elif chart_type == "Informações do Projeto":
         st.image(make_circle_image('src\\imgs\\Malena.jpg'))
         st.write('###### Malena Milani')
         st.write('###### -Repositório')
-    st.markdown("""                
-### Descrição do Projeto:
+        st.write('###### -Organização')
 
-Projeto focado na análise dos dados da academia para identificar padrões, relações e oportunidades de desenvolcimento e aprimoramento da academia.
+    col1, col2,col3 = st.columns(3)
+    with col1:
+        st.image(make_circle_image('src\\imgs\\Tiago.png'))
+        st.write('###### Tiago')
+        st.write('###### -Análise de relacionamento')
+        st.write('###### -Análise Temporal')
+    with col2:
+        st.image(make_circle_image('src\\imgs\\Gustavo.jpg'))
+        st.write('###### Gustavo')
+        st.write('###### -Edição de vídeo')
+    with col3:
+        st.image(make_circle_image('src\\imgs\\Malena.jpg'))
+        st.write('###### Malena Milani')
+        st.write('###### -Repositório')
+        st.write('###### -Organização')
+    st.markdown("********************")
+    st.markdown("""                
+### Descrição do papel do integrantes:
+
+                
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
 
 
 
@@ -122,7 +134,7 @@ Projeto focado na análise dos dados da academia para identificar padrões, rela
 elif chart_type == "Análises de Distribuição":
     st.write('# Analise de distribuição')
     st.write("### Distribuição das atividades")
-    st.pyplot(Distribuicao_Atividades(df))
+    st.pyplot(Funcoes_Distribuicao.Distribuicao_Atividades(df))
     import streamlit as st
 
     st.markdown("""
@@ -133,12 +145,27 @@ elif chart_type == "Análises de Distribuição":
 
 
     #### Observações:
-    Aqui vai ser adicionada algumas descrição bonitinha ou algumas oportunidade de negocio descoberta a partir do grafico. Agora estou só enchendo linguiça pra ficar bonitinho.
+    Aqui vai ser adicionada alguma descrição bonitinha ou algumas oportunidade de negocio descoberta a partir do grafico. Agora estou só enchendo linguiça pra ficar bonitinho.
     """)
 
-    
+    st.write("### Calorias X Atividades")
+    st.write("#### Média de calorias queimadas por atividade")
+    st.pyplot(Funcoes_Distribuicao.Calorias_Atividade(df))
+
+    st.markdown("""
+    ### Top 3 atividades com mais calorias queimadas:
+    #### 1. Zumba
+    #### 2. Yoga
+    #### 3. Musculação
+
+
+    #### Observações:
+    Aqui vai ser adicionada alguma descrição bonitinha ou algumas oportunidade de negocio descoberta a partir do grafico. Agora estou só enchendo linguiça pra ficar bonitinho.
+    """)
+
+
     st.write("#### Distribuição das idades")
-    st.pyplot(Distribuicao_Idades(df))
+    st.pyplot(Funcoes_Distribuicao.Distribuicao_Idades(df))
 
     st.markdown("""
     #### Idade Média do participantes: 42 Anos
