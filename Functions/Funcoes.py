@@ -7,6 +7,48 @@ from PIL import Image, ImageDraw
 import base64
 from io import BytesIO
 
+# Função para converter imagem em base64 para HTML
+def image_to_base64(img):
+    buffered = BytesIO()
+    img.save(buffered, format="PNG")
+    return base64.b64encode(buffered.getvalue()).decode()
+
+#Funnção para centralizar imagem
+def centralize_image(image_path, width=None):
+    image_html = f"""
+        <div style="display: flex; justify-content: center;">
+            <img src="{image_path}" style="{'width: ' + str(width) + 'px;' if width else ''}">
+        </div>
+    """
+    st.sidebar.markdown(image_html, unsafe_allow_html=True)
+
+
+# Função para exibir a imagem centralizada
+def display_centered_image(image_path):
+    img = make_circle_image(image_path)
+    img_base64 = image_to_base64(img)
+    img_html = f"""
+        <div style="display: flex; justify-content: center;">
+            <img src="data:image/png;base64,{img_base64}" style="border-radius: 50%; width: 150px;">
+        </div>
+    """
+    st.sidebar.markdown(img_html, unsafe_allow_html=True)
+
+    
+#Função para arrendondar imagem
+def make_circle_image(image_path):
+    img = Image.open(image_path).convert("RGBA")
+    bigsize = (img.size[0] * 3, img.size[1] * 3)
+    mask = Image.new("L", bigsize, 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0) + bigsize, fill=255)
+    mask = mask.resize(img.size, Image.LANCZOS)
+    img.putalpha(mask)
+    return img
+
+
+
+
 def distribuicao_atividades(df):#Grafico de distribuição das ativades 
 
 #Seleciona a coluna activity do dataframe df, que contém informações sobre os tipos de atividades praticadas na academia.
@@ -147,41 +189,7 @@ def cancelamento_plano(df):
     return plt
 
 # Função que centraliza uma imagem usando HTML no Streamlit
-def centralize_image(image_path, width=None):
-    image_html = f"""
-        <div style="display: flex; justify-content: center;">
-            <img src="{image_path}" style="{'width: ' + str(width) + 'px;' if width else ''}">
-        </div>
-    """
-    st.sidebar.markdown(image_html, unsafe_allow_html=True)
 
-#Função para arrendondar imagem
-def make_circle_image(image_path):
-    img = Image.open(image_path).convert("RGBA")
-    bigsize = (img.size[0] * 3, img.size[1] * 3)
-    mask = Image.new("L", bigsize, 0)
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0) + bigsize, fill=255)
-    mask = mask.resize(img.size, Image.LANCZOS)
-    img.putalpha(mask)
-    return img
-
-# Função para converter imagem em base64 para HTML
-def image_to_base64(img):
-    buffered = BytesIO()
-    img.save(buffered, format="PNG")
-    return base64.b64encode(buffered.getvalue()).decode()
-
-# Exibir a imagem centralizada
-def display_centered_image(image_path):
-    img = make_circle_image(image_path)
-    img_base64 = image_to_base64(img)
-    img_html = f"""
-        <div style="display: flex; justify-content: center;">
-            <img src="data:image/png;base64,{img_base64}" style="border-radius: 50%; width: 150px;">
-        </div>
-    """
-    st.sidebar.markdown(img_html, unsafe_allow_html=True)
 
 
 def plano_categoria(df):
@@ -237,16 +245,39 @@ def frequencia_dia(df):
     hourly_pattern = df.groupby("time").size()
 
     # Plotando gráfico de barras para o padrão por horário
-    plt.figure(figsize=(10, 6), facecolor='#0A2538')
+    plt.figure(figsize=(10, 6), facecolor='#151515')
     plt.bar(
     hourly_pattern.index, hourly_pattern.values, color='#BF5B32',
     linewidth=0.6, edgecolor='black'
     )
-    plt.gca().set_facecolor('#A4B8C4')
+    plt.gca().set_facecolor('#E2CC9C')
     plt.title("Frequência por Horário do Dia", color='#E2CC9C', fontsize=16)
     plt.xlabel("Hora", color='#E2CC9C', fontsize=14)
     plt.ylabel("Número de Check-ins", color='#E2CC9C', fontsize=14)
     plt.xticks(color='#E2CC9C', fontsize=10)
     plt.yticks(color='#E2CC9C', fontsize=10)
+    plt.grid(True, color='gray')
+    return plt
+
+
+def frequencia_mes(df):
+    # Criando coluna com o mês
+    df["date"] = pd.to_datetime(df["date"])
+    df["month"] = df["date"].dt.month
+
+    # Agrupando por mês
+    monthly_pattern = df.groupby("month").size()
+
+    # Plotando gráfico de barras para o padrão mensal
+    plt.figure(figsize=(10, 6), facecolor='#151515')
+    plt.bar(
+    monthly_pattern.index, monthly_pattern.values, color='#BF5B32'
+    )
+    plt.gca().set_facecolor('#E2CC9C')
+    plt.title("Frequência Mensal dos Alunos", fontsize=16, color='#E2CC9C')
+    plt.xlabel("Mês", fontsize=14, color='#E2CC9C')
+    plt.ylabel("Número de Check-ins", fontsize=14, color='#E2CC9C')
+    plt.xticks(color='#E2CC9C',fontsize=10)
+    plt.yticks(color='#E2CC9C',fontsize=10)
     plt.grid(True, color='gray')
     return plt

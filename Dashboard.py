@@ -157,17 +157,52 @@ elif chart_type == "Horários":
     st.write("## Frequencia diária dos alunos")
     st.pyplot(Funcoes.frequencia_dia(df))
     st.markdown("""
-
+            
+### Horário de Funcionamento: 06:00 às 22:00
                 
-
-
-
-
-
-
-
+### Horários de Pico:
+#### -17:00 às 18:00
+### Horários Vazios:
+                
+#### -09:00 às 10:00
+                
+#### -10:00 às 11:00
+                
+#### -14:00 às 15:00
+                
+#### -16:00 às 17:00 
+                     
 ****************
 """)
+    st.write("## Frequência mensal dos alunos")
+    st.pyplot(Funcoes.frequencia_mes(df))
+    st.markdown("""
+### Meses mais cheios:
+#### -Maio
+#### -Setembro
+#### -Outubro 
+### Meses mais vazios::
+#### -Janeiro
+#### -Fevereiro
+#### -Abril
+*************************
+""")
+    st.write("<h1 style='text-align: center;'>Problemas e soluções</h1>", unsafe_allow_html=True)
+    st.markdown("""
+    
+## Problemas:
+### - 5 horas onde a academia fica completamente vazia.
+### -Baixa quantidade de Alunos nos meses de Janeiro e Fevereiro, meses que costumam ser os mais procurados.
+
+                    
+## Solução:
+#### - 
+    
+""")
+    
+
+
+
 
 
  #Informações do projeto
@@ -219,7 +254,7 @@ elif chart_type == "Informações do Grupo":
         st.write('##### Max Clay')
         st.write('###### -Revisões')
     with col3:
-        st.image(Funcoes.make_circle_image('src\\imgs\\Malena.jpg'),width= 150)
+        st.image(Funcoes.make_circle_image('src\\imgs\\Isabela.jpg'),width= 150)
         st.write('##### Isabela')
         st.write('###### -Análise Categórica')
         st.write('###### -Estilização')
@@ -245,7 +280,7 @@ elif chart_type == "Informações do Grupo":
     """)
 
     
-#Análise de distribuição
+#Estudo das atividades
 elif chart_type == "Estudo das atividades":
     st.write('# Estudo das atividades da academia')
     st.write("### Atividades mais realizadas")
