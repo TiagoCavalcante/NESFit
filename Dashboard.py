@@ -10,7 +10,7 @@ import base64
 from io import BytesIO
 
 # Carregando o banco de dados
-df = pd.read_csv('C:\\Prog\\Py\\ProjetosPessoais\\Pratica_e_pesquisa\\NESFIT\\data\\fitness_gym.csv')
+df = pd.read_csv('../data/fitness_gym.csv')
 
 # Exibindo a imagem centralizada na barra lateral
 Funcoes.display_centered_image('src/imgs/nesfitv2.jpg')
@@ -402,15 +402,70 @@ A realocação dos clientes pode:
 # Informações do projeto
 elif chart_type == "Informações do Projeto":
     st.markdown("<h1 style='text-align: center;'>Informações do projeto</h1>", unsafe_allow_html=True)
-    st.markdown("********************")
-    st.write('## Objetivo')
-    st.write('###### - Desenvolver uma plataforma digital que facilite a gestão e avaliação dos plano de academia do G2 NESFIT.')
-    st.write('## Metas')
-    st.write('###### - Aumentar a taxa de cancelamento de clientes.')
-    st.write('###### - Melhorar a qualidade do serviço.')
-    st.write('###### - Aumentar a satisfação dos clientes.')
-    st.write('## Estratégia')
-    st.write('###### - Utilizar dados de clientes e avaliações para melhorar o plano de')
+    st.markdown("""
+****************************
+# Descrição do Projeto - Academia Fitness
+
+## Objetivo do Projeto
+
+O objetivo deste projeto foi realizar uma análise de dados detalhada sobre o funcionamento da academia FITNES com foco em identificar uma oportunidade de negócio. Analisamos dados sobre frequência, atividades preferidas, horários de pico e taxas de cancelamento, e utilizamos esses insights para propor uma solução que pode otimizar a operação e aumentar a satisfação dos clientes.
+
+## Oportunidade de Negócio
+
+A análise de dados revelou diversas oportunidades, como a reorganização dos horários e a substituição de atividades de baixa adesão por opções mais populares. Além disso, identificamos que o plano básico é uma das principais causas de insatisfação e cancelamentos, sugerindo a necessidade de ajustes de preço e benefícios.
+
+## Análises Realizadas
+
+### Análise Temporal
+- **Gráfico de Linha**: Observação de tendências de frequência ao longo do tempo.
+- **Identificação de Sazonalidade**: Determinação de períodos mais e menos movimentados.
+
+### Análise de Distribuição
+- **Histograma/Boxplot**: Avaliação da distribuição de frequência e duração das atividades.
+- **Outliers**: Identificação de picos de movimentação.
+
+### Análise de Relacionamento
+- **Gráfico de Dispersão/Heatmap**: Relação entre satisfação e adesão às modalidades, correlação entre motivos de cancelamento e frequência.
+- **Padrões Significativos**: Correlação entre atividades e retenção de alunos.
+
+### Análise Categórica
+- **Gráfico de Barras/Pizza**: Comparação de popularidade entre modalidades e planos.
+- **Identificação de Preferências**: Análise de popularidade por tipo de plano e atividade.
+
+## Insights e Recomendações
+
+1. **Otimização de Horários**: Reorganizar horários com baixa adesão para reduzir custos operacionais.
+2. **Substituição de Modalidades**: Substituir atividades de baixa popularidade por outras mais procuradas, como Zumba e Yoga.
+3. **Reformulação de Planos**: Ajuste no plano básico para melhorar a retenção de clientes, abordando os principais motivos de cancelamento.
+
+## Ferramentas Utilizadas
+
+- **Python** para análise de dados e geração de gráficos.
+- **Bibliotecas**: Pandas, Matplotlib, Seaborn para visualização.
+- **Streamlit** para criação do dashboard interativo.
+
+## Dashboard Interativo
+
+O dashboard desenvolvido permite que os investidores visualizem e explorem as análises de maneira dinâmica, incluindo:
+
+- Frequência e sazonalidade.
+- Análise de modalidades e cancelamentos.
+- Gráficos categóricos para comparação entre planos e atividades.
+
+---
+
+## Conclusão e Próximos Passos
+
+Com base nos dados e análises realizadas, sugerimos um investimento focado em otimização de recursos, substituição de modalidades e melhoria no plano básico. Acreditamos que essas mudanças aumentarão a retenção de clientes e otimizarão a operação, gerando um impacto positivo nos resultados da academia.
+
+**Próximos Passos**:
+- Implementar as mudanças sugeridas.
+- Monitorar o impacto das alterações.
+- Continuar a coleta e análise de dados para ajustes contínuos.
+
+---
+
+""")
 
 # Informações do grupo
 elif chart_type == "Informações do Grupo":
