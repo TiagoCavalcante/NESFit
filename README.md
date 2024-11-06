@@ -1,10 +1,12 @@
-# NESFit
+# 🏋️‍♀️ FITNES 🏋️‍♂️
 
 NES 2024 Practical and Research Work - Group 2
 
-## Where is the data?
+## Introdução
 
-In [ecaf1/visualizacao-dados-matplotlib](https://github.com/ecaf1/visualizacao-dados-matplotlib/).
+#### Projeto voltado para análise de dados com fins acadêmicos referentes a disciplina de Prática e Pesquisa do projeto de extensão da UFAL (Universidade Federal de Alagoas) NES (Novo Ensino Suplementar).
+
+#### O projeto visa analizar um banco de dados fictício de uma academia e encontrar insights valiosos, apresentando um pitch convincente para possíveis investidores.
 
 ## Getting started
 

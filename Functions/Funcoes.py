@@ -34,7 +34,7 @@ def display_centered_image(image_path):
     """
     st.sidebar.markdown(img_html, unsafe_allow_html=True)
 
-    
+
 #Função para arrendondar imagem
 def make_circle_image(image_path):
     img = Image.open(image_path).convert("RGBA")
@@ -281,3 +281,52 @@ def frequencia_mes(df):
     plt.yticks(color='#E2CC9C',fontsize=10)
     plt.grid(True, color='gray')
     return plt
+
+
+
+import matplotlib.pyplot as plt
+
+def distribuicao_assinaturas(df):
+    # Contagem dos tipos de assinatura
+    membership_counts = df["membership_type"].value_counts()
+    
+    # Configurações do gráfico
+    plt.figure(figsize=(6, 6), facecolor='#0E1117')
+    plt.rcParams.update({'font.size': 12, 'font.family': 'Arial'})
+
+    # Criando o gráfico de pizza com Matplotlib
+    wedges, texts, autotexts = plt.pie(
+        membership_counts,
+        labels=membership_counts.index,
+        autopct="%1.1f%%",
+        colors=['#E84A2E', '#E2CC9C', '#A4B8C4'],
+        wedgeprops={'edgecolor': 'white', 'linewidth': 1.5},
+        startangle=140
+    )
+
+    # Configuração dos textos e rótulos
+    for text in texts:
+        text.set_color("#E84A2E")  # Define a cor "#E84A2E" para os nomes dos planos
+    
+    for autotext in autotexts:
+        autotext.set_color("Black")  # Define o texto do percentual em branco
+        autotext.set_fontsize(14)
+        autotext.set_weight("bold")
+
+    # Título do gráfico
+    plt.title("Distribuição dos Tipos de Assinatura", fontsize=16, color="#E84A2E", weight="bold")
+    
+    # Adicionar legenda com nomes dos planos
+    plt.legend(
+        membership_counts.index, 
+        title="Tipos de Assinatura", 
+        loc="upper right",
+        bbox_to_anchor=(1.2, 1),
+        title_fontsize=12,
+        fontsize=10,
+        labelcolor="Black"  # Define a cor da legenda para "#E84A2E"
+    )
+
+    # Exibir o gráfico
+    return plt
+
