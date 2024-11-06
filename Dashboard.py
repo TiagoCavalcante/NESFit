@@ -10,7 +10,7 @@ import base64
 from io import BytesIO
 
 # Carregando o banco de dados
-df = pd.read_csv('../data/fitness_gym.csv')
+df = pd.read_csv('data/fitness_gym.csv')
 
 # Exibindo a imagem centralizada na barra lateral
 Funcoes.display_centered_image('src/imgs/nesfitv2.jpg')
@@ -54,8 +54,8 @@ elif chart_type == "Mercado":
         st.markdown("<h1 style='text-align: center;'>Contexto de mercado</h1>", unsafe_allow_html=True)
         st.markdown("""
             ***********************
-            #### -O mercado fitness é uma área ampla que contempla negócios voltados à saúde e bem-estar de modo geral.
-            #### -Durante as últimas décadas, a necessidade de exercícios físicos é cada vez maior, a crescente preocupação com a saúde fez com que mais pessoas procurassem academias e espaços fitness.
+            #### - O mercado fitness é uma área ampla que contempla negócios voltados à saúde e bem-estar de modo geral.
+            #### - Durante as últimas décadas, a necessidade de exercícios físicos é cada vez maior, a crescente preocupação com a saúde fez com que mais pessoas procurassem academias e espaços fitness.
             """)
 
     st.markdown("""************************""")
