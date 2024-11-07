@@ -73,8 +73,8 @@ def distribuicao_atividades(df):#Grafico de distribuição das ativades
     plt.title('Distribuição das atividades na academia', fontsize=16, color='#E64B2D')
 
     #Labels e ticks.
-    plt.xlabel('Activity', fontsize=14, color='#E64B2D')
-    plt.ylabel('Frequency', fontsize=14, color='#E64B2D')
+    plt.xlabel('Atividades', fontsize=14, color='#E64B2D')
+    plt.ylabel('Frequência', fontsize=14, color='#E64B2D')
     plt.xticks(color ='#E2CC9C',fontsize=10)
     plt.yticks(color ='#E2CC9C',fontsize=10)
 
@@ -101,8 +101,8 @@ def distribuicao_idades(df):
     plt.title('Distribuição das idades na academia', color='#E2CC9C', fontsize=16)
 
     # Labels e ticks
-    plt.xlabel('Age', color='#E2CC9C', fontsize=14)
-    plt.ylabel('Count', color='#E2CC9C', fontsize=14)
+    plt.xlabel('Idade', color='#E2CC9C', fontsize=14)
+    plt.ylabel('Densidade', color='#E2CC9C', fontsize=14)
     plt.xticks(color='#E2CC9C', fontsize=10)
     plt.yticks(color='#E2CC9C', fontsize=10)
 
@@ -203,12 +203,12 @@ def plano_categoria(df):
     plt.gca().set_facecolor('#E2CC9C')
 
     # Add title and labels
-    plt.title('Membership Count by Activity Category and Membership Type',color= '#E84A2E',fontsize = 16)
-    plt.xlabel('Activity Category',color= '#E84A2E', fontsize = 14)
-    plt.ylabel('Membership Count',color= '#E84A2E', fontsize =14)
+    plt.title('Quantidade de mebros por plano em cada Categoria de atividade',color= '#E84A2E',fontsize = 16)
+    plt.xlabel('Categoria da Atividade',color= '#E84A2E', fontsize = 14)
+    plt.ylabel('Quantidade de Alunos',color= '#E84A2E', fontsize =14)
 
     # Display the legend
-    plt.legend(title='Membership Type')
+    plt.legend(title='Tipo de Mmenbro')
     return plt
 
 
@@ -223,9 +223,9 @@ def activity_category(df):
     plt.gca().set_facecolor('#E2CC9C')
 
     # Add title and labels
-    plt.title('Membership Count by Activity Category and Membership Type',color= '#E84A2E',fontsize = 16)
-    plt.xlabel('Activity Category',color= '#E84A2E', fontsize = 14)
-    plt.ylabel('Membership Count',color= '#E84A2E', fontsize =14)
+    plt.title('Alunos por categoria de atividade e tipo de membro',color= '#E84A2E',fontsize = 16)
+    plt.xlabel('Categoria de atividade',color= '#E84A2E', fontsize = 14)
+    plt.ylabel('Quantidade de Alunos',color= '#E84A2E', fontsize =14)
     plt.xticks(color ='#E2CC9C',fontsize=10)
     plt.yticks(color ='#E2CC9C',fontsize=10)
 
