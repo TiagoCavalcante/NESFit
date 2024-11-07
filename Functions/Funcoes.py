@@ -134,7 +134,7 @@ def calorias_atividade(df):
     plt.grid(True,color = '#0A2538', linestyle = "--", alpha = 0.7)
 
     #Adicionando um título ao gráfico, define a cor do título e o tamanho do título.
-    plt.title('Media de calorias queimadas por atividade', fontsize=16, color='#E64B2D')
+    plt.title('Média de calorias queimadas por atividade', fontsize=16, color='#E64B2D')
 
     #Labels e ticks.
     plt.xlabel('Atividades', fontsize=14, color='#E64B2D')
