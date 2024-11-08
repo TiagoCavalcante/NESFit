@@ -330,54 +330,62 @@ elif chart_type == "Atividades":
         "<h1 style='text-align: center;'>Problemas e soluções</h1>",
         unsafe_allow_html=True,
     )
-    st.markdown(
-        """
-### Substituição da Atividade de Jump para Otimização do Desempenho
+    
+    st.markdown("""
+    ### Substituição da Atividade de Jump para Otimização do Desempenho
+    # Problema: Baixo Desempenho da Atividade Jump
 
-## Identificação do Problema
+    ### Análise da Situação Atual
+    * **Análise de ROI:** Jump teve a pior rentabilidade em comparação com as outras atividades.
+    * **Análise de Distribuição:** A atividade de Jump foi a menos frequentada.
+    * **Análise Categórica:** O tempo médio de treino na atividade Jump foi o menor.
+    * **Análise de Relacionamento:** Jump foi a atividade menos popular entre os frequentadores.
 
-- **Baixo desempenho da atividade de Jump**:
-  - Menor frequência de alunos.
-  - Baixa queima de calorias
-  - Menor tempo médio de treino.
-  - Baixa popularidade entre os frequentadores.
+    ### Desafios no Público-Alvo
+    #### Atividades de Alta Intensidade
+    * O público da academia (principalmente de meia-idade) prefere atividades de baixa intensidade e média duração
+    * Isso limita o engajamento com atividades mais intensas, como o Jump
 
----
+    #### Falta de Aspectos Sociais
+    * O Jump não oferece o mesmo caráter coletivo e social que outras atividades
+    * Este é um fator importante para o público-alvo da academia
 
-## Proposta de Solução
+    ### Solução Proposta
 
-### Substituir o Jump por Atividades como Zumba e Yoga
-- **Motivação**: Zumba e Yoga são mais populares e frequentadas pelo público da academia.
+    #### 1. Substituição da Atividade de Jump
+    * **Escolha de Novas Atividades:**
+        * Zumba e Yoga foram identificadas como atividades com melhor desempenho
+        * Maior rentabilidade e maior frequência
+    * **Foco nas Preferências do Público:**
+        * Atividades que atendem melhor às preferências do público de meia-idade
+        * Busca por atividades de baixa intensidade e médio tempo de duração
 
-### Razões para a Substituição
-- **Público-alvo**:
-  - Predominância de **pessoas de meia-idade**, que preferem atividades de **baixa intensidade** e com **caráter coletivo**, favorecendo a socialização.
+    #### 2. Aproveitamento das Tendências de Mercado
+    * **Crescimento da Demanda:**
+        * Mercado fitness em expansão
+        * Crescente demanda por atividades de saúde e bem-estar
+        * Yoga e Zumba em alta
+    * **Apoio das Redes Sociais:**
+        * Zumba impulsionada por TikTok e Instagram
+        * Desafios e batalhas de fitdance
+        * Maior alcance e visibilidade da atividade
 
-- **Tendências de Mercado**:
-  - Crescimento do interesse por **saúde e bem-estar**.
-  - Yoga e Zumba atendem bem a essa demanda, alinhando-se às expectativas dos frequentadores.
+    #### 3. Aspectos Econômicos Favoráveis
+    * **Redução de Custos:**
+        * Yoga e Zumba não exigem equipamentos especializados
+        * Redução significativa nos custos de manutenção e instalação
+    * **Sustentabilidade Econômica:**
+        * Redução de problemas fiscais
+        * Contribuição para a sustentabilidade financeira da academia
 
----
-
-## Impulso das Redes Sociais
-
-- **Popularidade da Zumba**:
-  - Ganhou visibilidade nas plataformas TikTok e Instagram, especialmente através de eventos de fitdance.
-  - Redes sociais ajudam a expandir o alcance da academia e a fortalecer o vínculo com os frequentadores.
-
----
-
-## Vantagens Econômicas
-
-- **Baixo custo de manutenção**:
-  - Yoga e Zumba não exigem equipamentos especializados, o que reduz os custos de manutenção e instalação.
-  - Evita problemas fiscais relacionados à preservação de equipamentos.
-
-- **Sustentabilidade Financeira**:
-  - A substituição do Jump por Zumba e Yoga visa uma **melhoria estratégica e financeiramente sustentável** para o desempenho da academia.
-
-    """
-    )
+    #### 4. Foco no Público de Meia-Idade
+    * **Fidelidade e Constância:**
+        * Público com rotinas mais estáveis e flexíveis
+        * Maior tendência à fidelização
+    * **Medida de Sustentabilidade:**
+        * Estratégia mais segura para garantir a sustentabilidade
+        * Maior probabilidade de continuidade nas atividades
+    """)
 
 # Página das Frequências
 elif chart_type == "Frequência":
@@ -433,66 +441,66 @@ elif chart_type == "Frequência":
         "<h1 style='text-align: center;'>Problemas e soluções</h1>",
         unsafe_allow_html=True,
     )
-    st.markdown(
-        """
-### Otimização de Fluxo e Redução de Custos na Academia
+    import streamlit as st
 
-## Problema Identificado
-- **Defasagem nas movimentações dos clientes** ao longo do dia, com períodos de inatividade de 4 a 5 horas.
-- **Horários de Inatividade**:
-  - **Manhã**: 8h às 10h
-  - **Tarde**: 13h às 16h
-- Inatividade **considerada anormal**, pois gera custos fixos sem gerar receita.
+    st.markdown("""
+    ## Identificação do problema:
+    A academia apresenta uma defasagem nas movimentações dos clientes ao longo do dia, com períodos de inatividade significativos.
 
----
+    ### Períodos de inatividade:
+    * Manhã: 8h às 10h
+    * Tarde: 13h às 16h
+    * Duração: De 4 a 5 horas por dia.
 
-## Impactos Econômicos
+    ### Impacto da inatividade:
+    * **Perda de receita:** Não há geração de receita durante os períodos de inatividade.
+    * **Custos fixos:** Continuam a ser gerados, como:
+        * Energia elétrica (climatização, iluminação, equipamentos).
+        * Limpeza (insumos como água e produtos de limpeza).
+        * Salários dos funcionários.
 
-### 1. Custo com Energia
-- **Valor por hora**: R\$ 22/hora
-- **Prejuízo diário**: 5h x R\$ 22 = **R\$ 110**
-- **Prejuízo mensal**: R\$ 110 x 30 dias = **R\$ 3.300**
-- **Prejuízo anual**: R\$ 3.300 x 12 meses = **R\$ 39.600**
+    ## Cálculo do Impacto Financeiro da Inatividade
 
-### 2. Custo com Limpeza
-- Limpeza **contínua nos períodos de inatividade** gera custo extra com água, produtos e mão de obra, sem retorno financeiro.
+    ### Custos com energia:
+    * Custo médio da energia por hora: R$ 22
+    * Horas de inatividade diárias: 5 horas
+    * Prejuízo diário: 5 horas x R$ 22 = R$ 110
+    * Prejuízo mensal: R$ 110 x 30 dias = R$ 3.300
+    * Prejuízo anual: R$ 3.300 x 12 meses = R$ 39.600
 
-### 3. Custo com Salários de Funcionários
-- **Custo por funcionário**: R\$ 13/hora
-- **Gasto diário** para 1 funcionário (5h): 5h x R\$ 13 = **R\$ 65**
-- **Gasto diário total** para 15 funcionários: R\$ 65 x 15 = **R\$ 975**
-- **Gasto mensal**: R\$ 975 x 30 dias = **R\$ 29.250**
-- **Gasto anual**: R\$ 29.250 x 12 meses = **R\$ 351.000**
+    ### Custos com salários dos funcionários:
+    * Salário médio de um funcionário: R$ 13 por hora
+    * Horas trabalhadas por dia: 5 horas
+    * Gasto diário por funcionário: 13 x 5 = R$ 65
+    * Gasto diário para 15 funcionários: 65 x 15 = R$ 975
+    * Gasto mensal para 15 funcionários: 975 x 30 dias = R$ 29.250
+    * Gasto anual para 15 funcionários: 29.250 x 12 meses = R$ 351.000
 
----
+    ## Propostas de Soluções Estratégicas
 
-## Solução Proposta
+    ### 1. Realocação de Clientes para Horários de Inatividade:
+    **Objetivo:** Aproveitar os horários de baixa movimentação para redistribuir a demanda de clientes, otimizando o fluxo da academia.
 
-### Realocação de Clientes
-- **Objetivo**: Realocar clientes dos horários de pico para os períodos de inatividade.
+    **Benefícios:**
+    * Melhora na gestão da demanda.
+    * Menor estresse para os funcionários, com maior produtividade e bem-estar.
+    * Redução da competição pelos equipamentos, proporcionando um ambiente mais agradável para os clientes.
 
-### Benefícios:
-- **Otimização do fluxo** da academia.
-- **Melhor gestão de demandas**, trazendo mais equilíbrio ao uso do espaço.
-- **Qualidade de trabalho** dos funcionários:
-  - Rotinas mais equilibradas
-  - Redução de estresse
-  - Aumento da produtividade
-- **Benefícios para os clientes**:
-  - Menor competição pelos equipamentos
-  - Experiência de treino mais confortável
+    ### 2. Encerramento das Atividades nos Horários de Baixa Movimentação:
+    **Objetivo:** Fechar a academia durante os períodos de inatividade, reduzindo custos fixos (energia, limpeza e salários).
 
----
+    **Benefícios:**
+    * Redução imediata de custos operacionais.
+    * Possível eliminação de despesas com energia, limpeza e salários de funcionários nesses períodos.
 
-## Conclusão
-A realocação dos clientes pode:
-- Reduzir os custos com energia e salários de funcionários
-- Melhorar a experiência de trabalho dos funcionários
-- Proporcionar um ambiente de treino mais equilibrado e eficiente
+    **Riscos:**
+    * Eliminação da possibilidade de gerar lucro nesses horários.
+    * O lucro potencial pode ser baixo ou insignificante, o que pode justificar a redução das operações.
 
-
-    """
-    )
+    ## Considerações Finais
+    **Falta de informações concretas:**
+    Devido à ausência de dados específicos sobre a rentabilidade e a logística da academia, a equipe apresentou duas soluções para análise. A escolha da abordagem mais adequada deve ser feita pelo empreendedor.
+    """)
 
 # Informações do projeto
 elif chart_type == "Informações do Projeto":
