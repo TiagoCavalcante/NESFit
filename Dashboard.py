@@ -304,9 +304,27 @@ elif chart_type == "Atividades":
     - **1. Bem-estar**
     - **2. Dança**
     - **3. Força**
+
+    *******************************
     """
     )
 
+    st.write("### Análise de ROI")
+    st.pyplot(Funcoes.analise_roi(df))
+    st.markdown(
+        """
+    ### Top 3 Atividades com Mais Retorno:
+    - **1. Zumba**
+    - **2. Yoga**
+    - **3. Musculação**
+    
+    ### Atividades causando prejuízo:
+    - **1. Jump**
+    - **2. Crossfit**
+    - **3. Spinning**
+    *******************************
+    """
+    )
     # Problemas e soluções
     st.write(
         "<h1 style='text-align: center;'>Problemas e soluções</h1>",

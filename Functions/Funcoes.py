@@ -576,3 +576,117 @@ def distribuicao_assinaturas(df):
 
     # Exibir o gráfico
     return plt
+
+
+
+def analise_roi(df):
+    # Definindo receita por participante para cada atividade)
+    receita_por_atividade = {
+        "Boxing": 60.0,
+        "CrossFit": 70.0,
+        "Jump": 50.0,
+        "Musculação": 55.0,
+        "Pilates": 65.0,
+        "Spinning": 75.0,
+        "Yoga": 45.0,
+        "Zumba": 40.0,
+    }
+
+    # Definindo custo fixo por atividade
+    custo_fixo_por_atividade = {
+        "Boxing": 1000.0,
+        "CrossFit": 2000.0,
+        "Jump": 1200.0,
+        "Musculação": 1000.0,
+        "Pilates": 1500.0,
+        "Spinning": 1500.0,
+        "Yoga": 800.0,
+        "Zumba": 700.0,
+    }
+
+    # Cálculo do número de participantes por atividade
+    participantes_por_atividade = (
+        df["activity"].value_counts().reset_index()
+    )
+    participantes_por_atividade.columns = [
+        "activity",
+        "Participantes",
+    ]
+
+    # Criar DataFrame para receita e custo fixo
+    df_receita = pd.DataFrame(
+        list(receita_por_atividade.items()),
+        columns=[
+            "activity",
+            "Receita_por_participante",
+        ],
+    )
+    df_custo = pd.DataFrame(
+        list(custo_fixo_por_atividade.items()),
+        columns=["activity", "Custo_Fixo"],
+    )
+
+    # Merge dos dados
+    df_roi = participantes_por_atividade.merge(
+        df_receita, on="activity", how="left"
+    )
+    df_roi = df_roi.merge(
+        df_custo, on="activity", how="left"
+    )
+
+    # Substituir valores faltantes de Receita e Custo Fixo por 0 (se houver)
+    df_roi["Receita_por_participante"] = df_roi[
+        "Receita_por_participante"
+    ].fillna(0)
+    df_roi["Custo_Fixo"] = df_roi[
+        "Custo_Fixo"
+    ].fillna(0)
+
+    # Calcular Receita Total
+    df_roi["Receita_Total_R$"] = (
+        df_roi["Participantes"]
+        * df_roi["Receita_por_participante"]
+    )
+
+    # Calcular ROI
+    df_roi["ROI (%)"] = (
+        (
+            df_roi["Receita_Total_R$"]
+            - df_roi["Custo_Fixo"]
+        )
+        / df_roi["Custo_Fixo"]
+    ) * 100
+
+    # Mostrar a tabela de ROI
+    print(
+        df_roi[
+            [
+                "activity",
+                "Participantes",
+                "Receita_Total_R$",
+                "Custo_Fixo",
+                "ROI (%)",
+            ]
+        ]
+    )
+
+    # Visualização do ROI por Atividade
+    plt.figure(figsize=(12, 6), facecolor="#151515")
+    sns.barplot(
+        x="activity",
+        y="ROI (%)",
+        data=df_roi,
+        palette="viridis",
+        hue="activity",
+    )
+    plt.gca().set_facecolor("#E2CC9C")
+    plt.title(
+        "ROI por Tipo de Atividade", fontsize=16,color = '#E84A2E'
+    )
+    plt.xlabel("Tipo de Atividade", fontsize=14,color = '#E84A2E')
+    plt.ylabel("ROI (%)", fontsize=14,color = '#E84A2E')
+    plt.xticks(rotation=45,color = '#E2CC9C')
+    plt.yticks(color = '#E2CC9C')
+    plt.grid(axis="y",color = "Black")
+
+    return plt
