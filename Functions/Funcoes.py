@@ -94,7 +94,7 @@ def distribuicao_atividades(
         alpha=0.7,
     )
 
-    # Adicionando um título ao gráfico, define a cor do título e o tamanho do título.
+    # Adicionando um título ao gráfico, definindo a cor do título e o tamanho do título.
     plt.title(
         "Distribuição das atividades na academia",
         fontsize=16,
@@ -145,7 +145,7 @@ def distribuicao_idades(df):
         linestyle="--",
     )
 
-    # Adicionando um título ao gráfico, define a cor do título e o tamanho do título.
+    # Adicionando um título ao gráfico, definindo a cor do título e o tamanho do título.
     plt.title(
         "Distribuição das idades na academia",
         color="#E2CC9C",
@@ -183,7 +183,7 @@ def calorias_atividade(df):
         .reset_index()
     )
 
-    # Ordena a coluna pela média de calorias queimadas em ordem decrescente
+    # Ordena a coluna pela média de calorias queimadas em ordem decrescente.
     calorias_atividade.sort_values(
         by="calories_burned",
         ascending=False,
@@ -214,7 +214,7 @@ def calorias_atividade(df):
         alpha=0.7,
     )
 
-    # Adicionando um título ao gráfico, define a cor do título e o tamanho do título.
+    # Adicionando um título ao gráfico, definindo a cor do título e o tamanho do título.
     plt.title(
         "Média de calorias queimadas por atividade",
         fontsize=16,
@@ -357,7 +357,7 @@ def plano_categoria(df):
 
     # Add title and labels
     plt.title(
-        "Quantidade de mebros por plano em cada Categoria de atividade",
+        "Quantidade de membros por plano em cada Categoria de atividade",
         color="#E84A2E",
         fontsize=16,
     )
@@ -580,7 +580,7 @@ def distribuicao_assinaturas(df):
 
 
 def analise_roi(df):
-    # Definindo receita por participante para cada atividade)
+    # Definindo receita por participante para cada atividade
     receita_por_atividade = {
         "Boxing": 60.0,
         "CrossFit": 70.0,
